@@ -1,0 +1,18 @@
+<section class="task-list-wrapper">
+    <div class="task-list-wrapper__info-wrapper">
+        <app-task-info-tag [isBoth]="false" [total]="total"></app-task-info-tag>
+        <app-task-info-tag [isBoth]="true" [total]="total" [completed]="completed"></app-task-info-tag>
+    </div>
+    <div class="task-list-wrapper__list-wrapper">
+        @if (todos$ | async; as todos) {
+            @if (todos.length) {
+                @for (todo of (todos$ | async); track todo.id) {
+                    <app-task-item [task]="todo"></app-task-item>
+                }
+            }
+            @else {
+                <app-task-empty-list></app-task-empty-list>
+            }
+        }
+    </div>
+</section>

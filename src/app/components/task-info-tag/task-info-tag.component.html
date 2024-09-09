@@ -1,0 +1,11 @@
+<section class="task-info-tag">
+    <!-- <p class="task-info-tag__label">Created Tasks</p> -->
+
+    @if (isBoth) {
+        <p class="task-info-tag__label" [ngClass]="{both: isBoth}">Completed</p>
+        <span class="task-info-tag__value">{{completed}} of {{total}}</span>
+    } @else {
+        <p class="task-info-tag__label" [ngClass]="{both: isBoth}">Created Tasks</p>
+        <span class="task-info-tag__value">{{total}}</span>
+    }
+</section>

@@ -1,0 +1,45 @@
+@import "../../../styles/colors-token.scss";
+
+$component: '.to-do-entry-form';
+
+#{$component} {
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: -1.8rem;
+    
+    &__input {
+        font-size: 1rem;
+        color: $gray-100;
+        padding: 1rem;
+        background: $gray-500;
+        width: 100%;
+        border: 1px solid $gray-500;
+        border-radius: 0.5rem;
+        &::placeholder {
+            color: $gray-300;
+        }
+        &:focus {
+            outline-color: $purple-dark;
+        }
+    }
+
+
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 1.13rem;
+        border-radius: 0.5rem;
+        border: none;
+        background: $blue-dark;
+        color: $gray-100;
+        cursor: pointer;
+        &:hover {
+            background: $blue;
+        }
+    }
+
+}
