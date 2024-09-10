@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { TaskInterface } from '../interfaces/task.interface';
-import { tasks } from '../utils/tasks.utils';
 import { TaskPayloadInterface } from '../interfaces/task-payload.interface';
+import { tasks } from '../utils/tasks.utils';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  todos: TaskInterface[] = []
+  todos: TaskInterface[] = tasks
   private todoSubject: BehaviorSubject<TaskInterface[]> = new BehaviorSubject<TaskInterface[]>(this.todos)
   public todo$ = this.todoSubject.asObservable()
 
@@ -43,6 +43,14 @@ export class TaskService {
     if (todo) {
       todo.isCompleted =!todo.isCompleted
       this.todoSubject.next(this.todos)
+    }
+  }
+
+  editTask(id: number) {
+    const todo = this.todos.find(t => t.id === id)
+    console.log(todo)
+    if (todo) {
+      
     }
   }
 
